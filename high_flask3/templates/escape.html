@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>high_flask</title>
+</head>
+<body>
+
+
+<h2>个性签名：{{ signature|escape }}</h2>
+<h2>个性签名：{{ signature|safe }}</h2>
+<h2>第一个：{{ person|first }}</h2>
+<h2>最后一个：{{ person|last }}</h2>
+<h2>我的名字：{{ "%s"|format('luxun') }}</h2>
+<h2>人数：{{ person|length }}</h2>
+<h2>field：{{ field|replace('hello','my') }}</h2>
+<h2>指定长度：{{ field|truncate(length=5) }}</h2>
+<h2>删除 html 标签：{{ signature|striptags }}</h2>
+<h2>去掉 hello：{{ field|cut }}</h2>
+</body>
+</html>
+
