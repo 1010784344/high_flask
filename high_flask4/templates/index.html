@@ -79,6 +79,27 @@
 
 </table>
 
+{#for 循环实例：九九乘法表#}
+<table border="1">
+    <tbody>
+    {% for x in range(1,10) %}
+        <tr>
+        {% for y in range(1,x+1) %}
+            <td>{{ x }}*{{ y }}={{ x*y }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+
+
+
+
+    </tbody>
+
+
+</table>
+
+
+
 
 
 
