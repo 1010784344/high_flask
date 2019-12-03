@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>high_flask</title>
+</head>
+<body>
+<h2>'Hello World!'</h2>
+
+{#遍历列表#}
+<ul>
+    {% for con in country %}
+        <li>{{ con }}</li>
+    {% else %}
+        <li>没有任何值</li>
+    {% endfor %}
+</ul>
+
+
+{#遍历列表：反向#}
+<ul>
+    {% for con in country|reverse %}
+        <li>{{ con }}</li>
+    {% else %}
+        <li>没有任何值</li>
+    {% endfor %}
+</ul>
+
+
+{#遍历字典#}
+<ul>
+    {% for value in zuhe.values() %}
+        <li>{{ value }}</li>
+    {% endfor %}
+
+{#    {% for key,value in zuhe.items() %}#}
+{#        <li>{{ value }}</li>#}
+{#    {% endfor %}#}
+</ul>
+
+
+{#填充表格数据,loop 的使用#}
+<table>
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>价格</th>
+        <th>总数</th>
+    </tr>
+    <tbody>
+      {% for book in books %}
+
+          {% if loop.first %}
+             <tr style="background: red">
+           {% elif loop.last %}
+              <tr style="background: pink">
+          {% else %}
+            <tr>
+          {% endif %}
+
+            <td>{{ loop.index }}</td>
+            <td>{{ book.name }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ loop.length }}</td>
+          </tr>
+      {% endfor %}
+
+
+
+    </tbody>
+
+
+    </thead>
+
+
+
+</table>
+
+
+
+
+</body>
+</html>
