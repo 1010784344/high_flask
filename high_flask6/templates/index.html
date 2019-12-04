@@ -1,0 +1,29 @@
+{#同一个文件内引入宏#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>high_flask</title>
+</head>
+<body>
+
+{#在jinjia2 中定义全局变量#}
+{% set country = 'china' %}
+
+<h2>'Hello World!'</h2>
+
+<h2>This is {{ country }}</h2>
+
+
+
+{#在jinjia2 中定义局部变量#}
+
+{% with name = 'dachengguoji' %}
+    <h2>Your name:{{ name }}</h2>
+{% endwith %}
+
+<h2>My name:{{ name }}</h2>
+
+</body>
+</html>
