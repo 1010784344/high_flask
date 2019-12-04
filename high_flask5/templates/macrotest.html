@@ -1,0 +1,45 @@
+{#导入宏，工作中常用#}
+{#import 的时候的默认路径都是从 templates 下面去找文件#}
+{% import 'index_macro.html' as myinput with context%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>high_flask</title>
+</head>
+<body>
+<h2>'macrotest!'</h2>
+
+
+
+    {#使用宏#}
+    <table>
+        <tbody>
+
+            <tr>
+                <td>用户名:</td>
+                <td>{{ myinput.input('username') }}</td>
+
+            </tr>
+
+            <tr>
+                <td>密码：</td>
+                <td>{{ myinput.input('password',type='password') }}</td>
+
+            </tr>
+
+            <tr>
+                <td>提交</td>
+                <td>{{ myinput.input(value = '提交',type='submit') }}</td>
+
+            </tr>
+
+        </tbody>
+
+
+    </table>
+
+
+</body>
+</html>

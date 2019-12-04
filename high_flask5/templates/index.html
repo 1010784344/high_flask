@@ -1,0 +1,47 @@
+{#同一个文件内引入宏#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>high_flask</title>
+</head>
+<body>
+<h2>'Hello World!'</h2>
+    {#宏代码段定义#}
+    {% macro input(name='',value='',type='text')%}
+        <input name="{{ name }}" value="{{ value }}" type="{{ type }}">
+
+    {% endmacro %}
+
+
+    {#使用宏#}
+    <table>
+        <tbody>
+
+            <tr>
+                <td>用户名:</td>
+                <td>{{ input('username') }}</td>
+
+            </tr>
+
+            <tr>
+                <td>密码：</td>
+                <td>{{ input('password',type='password') }}</td>
+
+            </tr>
+
+            <tr>
+                <td>提交</td>
+                <td>{{ input(value = '提交',type='submit') }}</td>
+
+            </tr>
+
+        </tbody>
+
+
+    </table>
+
+
+</body>
+</html>
