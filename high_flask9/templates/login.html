@@ -7,10 +7,10 @@
 <body>
 <form action="" method="post">
 
+{#登录界面代码块#}
     <table>
 
     <tbody>
-
 
      <tr>
 
@@ -31,15 +31,14 @@
 
     </tr>
 
-
-
     </tbody>
-
-
-
 
     </table>
 
+
+    {% if error %}
+        <h2>{{ error }}</h2>
+    {% endif %}
 
 </form>
 
