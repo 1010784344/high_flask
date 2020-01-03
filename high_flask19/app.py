@@ -7,6 +7,14 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello World!'
 
+# 设置cookie 过期时间
+@app.route('/timeout/',methods=['GET','POST'])
+def timeout():
+    resp = Response('timeout')
+    resp.set_cookie('game','xiaobawang',max_age=60)
+    return resp
+
+
 # 设置cookie
 @app.route('/regist/',methods=['GET','POST'])
 def regist():
