@@ -1,8 +1,8 @@
 from flask import Flask
 
-from apps.cms import bp as cms_bp
-from apps.common import bp as common_bp
-from apps.front import bp as front_bp
+from apps.cms.views import cms_bp
+from apps.common.views import common_bp
+from apps.front.views import front_bp
 
 
 import config

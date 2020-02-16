@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-from apps.common import bp
+from flask import Blueprint
+
+common_bp = Blueprint('common',__name__,url_prefix='/common')
 
 
-@bp.route('/index/')
+@common_bp.route('/index/')
 def index():
     return 'This is commmon'
 

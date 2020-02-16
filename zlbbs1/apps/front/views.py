@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-from apps.front import bp
+# from apps.front import bp
+from flask import Blueprint
 
+front_bp = Blueprint('front',__name__)
 
-@bp.route('/index/')
+@front_bp.route('/index/')
 def index():
     return 'This is front'
 
