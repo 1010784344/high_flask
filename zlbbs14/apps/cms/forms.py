@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+from wtforms import Form,StringField,IntegerField
+from wtforms.validators import Email,input_required,length,EqualTo,ValidationError
+from utils import zlmemcache
+from flask import g
+
+
+class LoginForm(Form):
+    email = StringField(validators=[Email(message='请输入正确的邮箱格式'),input_required(message='请输入邮箱')])
+    password = StringField(validators=[length(6,15,message='请输入正确格式的密码'),input_required(message='请输入密码')])
+    remember = IntegerField()
+
+
+class ResetpwdForm(Form):
+    oldpwd = StringField(validators=[length(6,15,message='请输入正确格式的旧密码'),input_required(message='请输入旧密码')])
+    newpwd = StringField(validators=[length(6,20,message="请输入正确格式的新密码")])
+    newpwd2 = StringField(validators=[EqualTo('newpwd',message='请确认新密码和旧密码保持一致！'),input_required(message='请输入新密码')])
+
+
+class ResetemailForm(Form):
+    email = StringField(validators=[Email(message='请输入正确的邮箱格式')])
+    captcha = StringField(validators=[length(6,6,message="请输入正确格式的验证码")])
+
+    # 下面这2个函数是 WTForms 自定义的表单验证器
+    # 验证码不一致的问题
+    def validate_captcha(self,field):
+        email =self.email.data
+        captcha = field.data
+        captcha_cache = zlmemcache.get(email)
+
+
+        if not captcha_cache or captcha_cache.lower() != captcha.lower():
+            raise ValidationError('邮箱验证码错误')
+
+    #输入的邮箱相同的问题
+    def validate_email(self,field):
+        email = field.data
+        user = g.cms_user
+
+        if email == user.email:
+            raise ValidationError('不能修改为相同邮箱！')
+
+
+
+
+
+if __name__ == '__main__':
+    print
+    1
