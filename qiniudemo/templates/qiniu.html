@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.staticfile.org/Plupload/2.1.1/moxie.js"></script>
+    <script src="https://cdn.staticfile.org/Plupload/2.1.1/plupload.dev.js"></script>
+    <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.js"></script>
+    <script src="{{ url_for('static',filename='zlqiniu.js') }}"></script>
+
+    <script>
+        window.onload = function () {
+            zlqiniu.setup({
+                {#可以自己绑定域名使用，也可以使用七牛提供的测试域名#}
+                'domain':'http://q7bncq283.bkt.clouddn.com/',
+                {#自己指定的按钮的 id#}
+                'browse_btn':'upload-btn',
+                {#获取 uptoken 的url#}
+                'uptoken_url':'/uptoken/',
+
+                {#将上传成功图片的 url ，回填并显示出来#}
+                'success':function (up,file,info) {
+
+                    var image_url = file.name;
+                    var imageInput = document.getElementById('image-input');
+                    imageInput.value = image_url;
+
+                    var img = document.getElementById('img');
+                    img.setAttribute('src',image_url);
+                }
+
+
+                }
+
+
+            )
+        }
+    </script>
+
+</head>
+<body>
+
+<button id="upload-btn">上传文件</button>
+<input type="text" id="image-input">
+<img src="" alt="" id="img">
+</body>
+</html>
