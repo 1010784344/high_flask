@@ -2,6 +2,7 @@
 # from apps.front import bp
 from flask import Blueprint,views,render_template,request,jsonify,session,url_for
 from apps.front.forms import SignupForm,SigninForm
+from apps.models import BannersModel
 from apps.front.models import FrontUser
 from exts import alidayu,db
 from utils import safeutils
@@ -17,7 +18,13 @@ def test():
 
 @front_bp.route('/')
 def index():
-    return render_template('front/front_index.html')
+    banners = BannersModel.query.order_by(BannersModel.priority.desc()).limit(4)
+
+    # # jiagn返回多个字典实战
+    # context = {'banners':banners}
+
+
+    return render_template('front/front_index.html',banners=banners)
 
 # 测试：短信验证测试接口(其他方面都正常，就接口有问题（appkey-not-exists），暂时放过)
 # 阿里云账号：ali1010784344   密码：cwx364505

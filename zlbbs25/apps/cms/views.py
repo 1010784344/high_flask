@@ -84,7 +84,9 @@ def emailbug():
 @LoginRequired
 def banners():
 
-    allbanner = BannersModel.query.all()
+    # allbanner = BannersModel.query.all()
+    # 按照权重倒叙排列
+    allbanner = BannersModel.query.order_by(BannersModel.priority.desc()).all()
 
     return render_template('cms/cms_banners.html',allbanner=allbanner)
 

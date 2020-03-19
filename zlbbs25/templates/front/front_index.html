@@ -28,26 +28,17 @@
       <!-- 轮播图 -->
       <div class="carousel-inner" role="listbox">
 
-        <div class="item active">
-{#            <a href="#"><img src="{{ static('common/images/0.jpg') }}" alt="..."></a>#}
-            <a href="#"><img src="https://static-image.xfz.cn/1583895125_581.jpeg" alt="..."></a>
+          {% for banner in banners %}
+              {% if loop.first %}
+                    <div class="item active">
+              {% else %}
+                    <div class="item">
+              {% endif %}
+
+              <a href="{{ banner.link_url }}"><img src="{{ banner.image_url }}" alt="..."></a>
 
         </div>
-
-        <div class="item">
-            <a href="#"><img src="https://static-image.xfz.cn/1583748238_455.jpg" alt="..."></a>
-
-        </div>
-
-        <div class="item">
-            <a href="#"><img src="https://static-image.xfz.cn/1583895125_581.jpeg" alt="..."></a>
-
-        </div>
-
-        <div class="item">
-            <a href="#"><img src="https://static-image.xfz.cn/1583748952_414.png" alt="..."></a>
-
-        </div>
+          {% endfor %}
 
 
       </div>
