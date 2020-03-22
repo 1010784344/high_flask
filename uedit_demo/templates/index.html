@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Ueditor</title>
+
+    <script src="{{ url_for('static',filename='ueditor/ueditor.config.js') }}"></script>
+    <script src="{{ url_for('static',filename='ueditor/ueditor.all.min.js') }}"></script>
+
+
+
+</head>
+<body>
+{#这个东西后期我们的 ueditor 会自动的将这个标签变成一个富文本编辑器#}
+<script id="editor" type="text/plain"></script>
+
+<script>
+    var ue=UE.getEditor("editor",{'serverUrl':'/ueditor/upload/'});
+
+</script>
+
+</body>
+</html>
