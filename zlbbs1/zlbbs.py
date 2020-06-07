@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask
 
 from apps.cms.views import cms_bp
