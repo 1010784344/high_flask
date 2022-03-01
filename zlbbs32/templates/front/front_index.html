@@ -63,9 +63,9 @@
                         <li><a href="/">最新</a></li>
                     {% endif %}
 
-                    {% if current_st == 2 %}
+                    {% if current_st == 2 %}{# 选中之后 #}
                         <li class="active"><a href="{{ url_for('front.index',st=2) }}">精华帖子</a></li>
-                    {% else %}
+                    {% else %}{# 选中之前 #}
                         <li><a href="{{ url_for('front.index',st=2,bd=current_board) }}">精华帖子</a></li>
                     {% endif %}
 
@@ -149,11 +149,14 @@
             {% endif %}
 
             {% for board in boards %}
-                {% if current_board == board.id %}
-                <a href="{{ url_for('front.index',bd=board.id) }}" class="list-group-item active" >{{ board.name }}</a>
-                {% else %}
                 <a href="{{ url_for('front.index',bd=board.id) }}" class="list-group-item">{{ board.name }}</a>
-                {% endif %}
+
+
+{#                {% if current_board == board.id %}#}
+{#                <a href="{{ url_for('front.index',bd=board.id) }}" class="list-group-item active" >{{ board.name }}</a>#}
+{#                {% else %}#}
+{#                <a href="{{ url_for('front.index',bd=board.id) }}" class="list-group-item">{{ board.name }}</a>#}
+{#                {% endif %}#}
             {% endfor %}
 
         </div>

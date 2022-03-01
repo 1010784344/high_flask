@@ -17,7 +17,6 @@ cms_bp = Blueprint('cms',__name__,url_prefix='/cms')
 
 # cms 首页
 @cms_bp.route('/index/')
-@LoginRequired
 def index():
     return render_template('/cms/cms_index.html')
 

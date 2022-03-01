@@ -54,7 +54,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ url_for('cms.profile') }}">{{ g.cms_user.username }}</a></li>
+{#                <li><a href="{{ url_for('cms.profile') }}">{{ g.cms_user.username }}</a></li>#}
                 <li><a href="{{ url_for('cms.logout') }}">注销</a></li>
             </ul>
             <form class="navbar-form navbar-right">
@@ -80,33 +80,33 @@
                 </li>
 
                     <li class="nav-group banner-manage"><a href="{{ url_for('cms.banners') }}">轮播图管理</a></li>
-                
-                    {% if  g.cms_user.has_permission(CMPermission.POSTER) %}
+{#                判断当前用户是否有权限进行展示#}
+{#                    {% if  g.cms_user.has_permission(CMPermission.POSTER) %}#}
                         <li class="nav-group post-manage"><a href="{{ url_for('cms.posts') }}">帖子管理</a></li>
-                    {% endif %}
+{#                    {% endif %}#}
                 
-                    {% if  g.cms_user.has_permission(CMPermission.COMMENTER) %}
+{#                    {% if  g.cms_user.has_permission(CMPermission.COMMENTER) %}#}
                         <li class="comments-manage"><a href="{{ url_for('cms.comments') }}">评论管理</a></li>
-                    {% endif %}
+{#                    {% endif %}#}
                 
 
-                    {% if  g.cms_user.has_permission(CMPermission.BOARDER) %}
+{#                    {% if  g.cms_user.has_permission(CMPermission.BOARDER) %}#}
                         <li class="board-manage"><a href="{{ url_for('cms.boards') }}">板块管理</a></li>
-                    {% endif %}
+{#                    {% endif %}#}
 
-                    {% if  g.cms_user.has_permission(CMPermission.FRONTUSER) %}
+{#                    {% if  g.cms_user.has_permission(CMPermission.FRONTUSER) %}#}
                         <li class="nav-group user-manage"><a href="{{ url_for('cms.fusers') }}">前台用户管理</a></li>
 
-                    {% endif %}
+{#                    {% endif %}#}
 
-                    {% if  g.cms_user.has_permission(CMPermission.CMSUSER) %}
+{#                    {% if  g.cms_user.has_permission(CMPermission.CMSUSER) %}#}
                         <li class="nav-group cmsuser-manage"><a href="{{ url_for('cms.cusers') }}">CMS用户管理</a></li>
-                    {% endif %}
+{#                    {% endif %}#}
 
-                    {% if  g.cms_user.is_developer %}
+{#                    {% if  g.cms_user.is_developer %}#}
                         <li class="cmsrole-manage"><a href="{{ url_for('cms.croles') }}">CMS组管理</a></li>
 
-                    {% endif %}
+{#                    {% endif %}#}
 
             </ul>
         </div>

@@ -28,7 +28,7 @@ Migrate(app,db)
 # 将子命令添加到发号施令者（命令行）上面
 manager.add_command('db',MigrateCommand)
 
-
+# python .\manage.py create_cms_user -u admin -p admin -e admin@qq.com
 # 给 manager.py 添加一条命令:在 manage.py 通过 flask-script 给 cms 添加一个用户
 @manager.option('-u','--username',dest='username')
 @manager.option('-p','--password',dest='password')

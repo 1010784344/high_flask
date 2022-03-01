@@ -199,10 +199,10 @@ class SignupView(views.MethodView):
         form = SignupForm(request.form)
 
         if form.validate():
-            telephone = form.telephone.data
+            # telephone = form.telephone.data
             username = form.username.data
             password = form.password.data
-            user = FrontUser(telephone=telephone,username=username,password=password)
+            user = FrontUser(username=username,password=password)
             db.session.add(user)
             db.session.commit()
 
